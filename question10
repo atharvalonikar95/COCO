@@ -1,0 +1,76 @@
+# Given a list of orders with the order number, weight, city, and pin code.
+# Please write a loop to generate about 1000 orders split into 5 cities each with 2 pin codes
+# under it. After generating data, arrange them into a bunch of containers for efficient delivery.
+# And display the list of containers with the container's city and pincode (if applicable). Each
+# container can only take 1000 kg. All orders for one pincode should go in the same container.
+# But if there are more than containers for the same city, with less than 1000 kg, then merge
+# them, but without partial merging. For example container 1 - 500 kg, container 2 - 600 kg,
+# container 3 - 400 kg. In this case, containers 1 and 2 cannot be merged as it will lead to a
+# partial merge.
+# Hint - reduction of one array into smaller array, and probably additional reduction at the end
+# it
+# while True:
+l=[]
+cont1=[]
+cont2=[]
+cities=[]
+pin1=[]
+pin2=[]
+
+size=0
+for i in range(1):
+        
+    order_num=int(input("enter order number: "))
+    l.append(order_num)
+ 
+    weight=int(input("enter weight:"))   
+
+    if weight>1000:
+        w=weight//2
+        cont1.append(w)
+        cont2.append(w)
+        print(w)
+        print(cont1)
+    
+    else:
+        cont1.append(weight)
+    for j in cont1:
+        size=j+size
+    
+    print(size)
+    if size>1000 and (weight>1000-(size)):
+        print( " cont 1 is full")
+        
+        cont2.append(weight)
+        cont1.pop()
+    # print(cont1)
+    # print(cont2)
+
+   
+        
+    city=input("enter city name")
+    cities.append(city)
+        
+    pincode_1=int(input("enter pin1 for city"))
+    pin1.append(pincode_1)
+
+    pincode_2=int(input("enter pin1 for city"))
+    pin1.append(pincode_2)
+print("order no.s",l)
+print("container1",cont1)
+print("container2",cont2)
+print("cities",cities)
+print("pincode1",pin1)
+print("pincode2",pin2)
+            
+           
+            
+            
+            
+            
+            
+            
+            
+            
+            
+    
